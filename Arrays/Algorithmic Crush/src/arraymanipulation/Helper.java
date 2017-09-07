@@ -6,7 +6,7 @@ import java.util.*;
 public class Helper {
     
     int n,m;
-    int arr[];
+    long arr[];
     int a,b,k;
     Scanner s=new Scanner(System.in);
     
@@ -17,15 +17,17 @@ public class Helper {
       
       if(!(n>=3 && n<=10000000))
       {
-      System.exit(0);
+          System.out.println("Enter the correct value");
+          System.exit(0);
       }
       
       if(!(m>=1 && m<=200000))
       {
-      System.exit(0);
+          System.out.println("Enter the correct value");
+          System.exit(0);
       }
       
-      arr=new int[n];
+      arr=new long[n];
       Arrays.fill(arr, 0);
      
     }
@@ -40,23 +42,25 @@ public class Helper {
          
       if(!(a>=1 && a<=n))
       {
-      System.exit(0);
+          System.out.println("Enter the correct value");
+          System.exit(0);
       }
           
       if(!(b>=1 && b<=n && b>=a))
       {
-      System.exit(0);
+          System.out.println("Enter the correct value");
+          System.exit(0);
       }
       
        if(!(k>=0 && k<=1000000000))
       {
-      System.exit(0);
+          System.out.println("Enter the correct value");
+          System.exit(0);
       }
          
-        for(int j=a-1;j<=b-1;j++)
-         {
-           arr[j]=arr[j]+k;
-         }
+       arr[a-1]=arr[a-1]+k;
+       if(b<n)
+           arr[b]=arr[b]-k;
        
        }
            
@@ -65,11 +69,13 @@ public class Helper {
     
     void findMax()
     {
-        int max=arr[0];
-      for(int i=0;i<n;i++)
+        long max=arr[0];
+        long sum=arr[0];
+      for(int i=1;i<n;i++)
       {
-       if(arr[i]>max)
-       max=arr[i];
+          sum=sum+arr[i];
+       if(sum>max)
+       max=sum;
        
       }
       
