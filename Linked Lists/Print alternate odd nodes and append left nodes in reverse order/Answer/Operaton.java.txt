@@ -1,0 +1,113 @@
+
+package linkedlist;
+
+
+public class Operations {
+    
+      Node insertAtBegin(Node head,int data)
+      {
+        Node newnode=new Node();
+        newnode.data=data;
+      
+       
+       if(head==null)
+       {
+         
+         newnode.link=head;
+         head=newnode;
+       }
+       
+       else
+       {
+         newnode.link=head;
+          head=newnode;
+       }
+       
+       return head;
+      }
+      
+      Node insertAtEnd(Node head,int data)
+      {
+        Node newnode=new Node();
+        newnode.data=data;
+        
+        if(head==null)
+        {
+          head=newnode;
+          newnode.link=head;
+        }
+        
+        else
+        {
+            Node ptr=head;
+           while(ptr.link!=null)
+           {
+             ptr=ptr.link;
+           }
+           
+           ptr.link=newnode;
+           newnode.link=null;
+           
+        }
+        
+        return head;
+      }
+      
+      void print(Node head)
+      {
+        Node ptr=head;
+        while(ptr!=null)
+        {
+           System.out.print(ptr.data+"->");
+           ptr=ptr.link;
+        }
+      
+      }
+      
+      void ques(Node head)
+      {
+         Node ptr=head;
+         System.out.println(head.data);
+         
+         while(ptr!=null)
+         {
+            System.out.print(ptr.data+"->");
+            ptr=ptr.link;
+            
+             if(ptr==null)
+              break;
+             else if(ptr.link==null)
+                break;
+          
+            else 
+              ptr=ptr.link;
+         }
+      
+          
+         ques1(head.link);
+        
+      }
+      
+      void ques1(Node head)
+      {
+            if(head==null)
+         {
+             
+           return;
+         }
+            
+         if(head.link==null) 
+         {
+           
+           return;
+         }
+         
+ 
+         ques1(head.link.link);
+         System.out.print(head.data+"->");
+         
+      }
+     
+     
+    
+}
