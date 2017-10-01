@@ -1,0 +1,49 @@
+/*
+  Find merge point of two linked lists
+  head pointer input could be NULL as well for empty list
+  Node is defined as 
+  class Node {
+     int data;
+     Node next;
+  }
+*/
+int FindMergeNode(Node headA, Node headB) {
+    // Complete this function
+    // Do not write the main method. 
+    
+    /* See the 
+                 mycodeschool video */
+    
+    Node ptr1=headA;
+    Node ptr2=headB;
+    
+    int len1=0,len2=0;
+    
+    while(ptr1!=null)
+    {
+        len1++;
+        ptr1=ptr1.next;
+    }
+    
+    while(ptr2!=null)
+    {
+        len2++;
+        ptr2=ptr2.next;
+    }
+    
+    Node headB1=headB;
+    for(int i=0;i<len1;i++)
+    {
+        headB=headB1;
+        for(int j=0;j<len2;j++)
+        {
+            if(headA==headB)
+                return headA.data;
+            
+            headB=headB.next;
+        }
+        headA=headA.next;
+    }
+
+    return 0;
+}

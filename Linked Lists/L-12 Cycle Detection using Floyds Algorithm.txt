@@ -1,0 +1,39 @@
+/*
+Detect a cycle in a linked list. Note that the head pointer may be 'null' if the list is empty.
+
+A Node is defined as: 
+    class Node {
+        int data;
+        Node next;
+    }
+*/
+
+boolean hasCycle(Node head) {
+    
+    /* Using floyds algorithm 
+        Use two pointers slow and fast, 
+              fast traverse two nodes at a time and slow traverse one node at a time  
+                    if there is a cycle then definitely these two nodes will meet  */
+    
+    if(head==null)
+        return false;
+    
+    Node slow=head;
+    Node fast=head;
+    
+    while(fast!=null)
+    {
+        slow=slow.next;
+        fast=fast.next.next;
+        
+        if(slow==fast)
+        {
+            return true;
+        }
+        
+    }
+    return false;
+    
+    
+
+}
